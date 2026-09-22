@@ -1,0 +1,2 @@
+Masukkan sertifikat asli: prestasi1.png, prestasi2.jpg, prestasi3.jpeg, dst.
+HTML langsung: nomor berurutan dari 1. Build Vercel: boleh ada celah nomor.
