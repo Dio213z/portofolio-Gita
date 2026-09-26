@@ -7,7 +7,7 @@ window.PORTFOLIO_CONTACT = { email: "gitalidia25@gmail.com", instagram: "lidiaao
 // Data Experiment Lab (04 / EXPERIMENT LAB)
 window.experimentLab = [
   {
-    imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://files.catbox.moe/7gsupi.jpg",
     caption: "Kalkulator",
     label: "01 / Project",
     title: "🧮 Simple Calculator",
@@ -16,7 +16,7 @@ window.experimentLab = [
     linkUrl: "#"
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://files.catbox.moe/43l6eo.jpg",
     caption: "Mini Quiz",
     label: "02 / Project",
     title: "📸 Mini Quiz",
@@ -25,7 +25,7 @@ window.experimentLab = [
     linkUrl: "#"
   },
   {
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://files.catbox.moe/s6ifhb.jpg",
     caption: "Daily List",
     label: "03 / Project",
     title: "🌷Daily List",
