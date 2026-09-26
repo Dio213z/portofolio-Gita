@@ -10,8 +10,8 @@ window.experimentLab = [
     imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
     caption: "Eksperimen Desain Web & Antarmuka Interaktif",
     label: "01 / EXPERIMENT",
-    title: "Visual Studio Canvas",
-    description: "Eksplorasi tata letak dinamis dan elemen visual dalam antarmuka modern.",
+    title: "🧮 Simple Calculator",
+    description: "Program Python untuk melakukan operasi hitung dasar seperti tambah, kurang, kali, dan bagi.",
     linkText: "Lihat project ↗",
     linkUrl: "#"
   },
@@ -19,7 +19,7 @@ window.experimentLab = [
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
     caption: "Eksplorasi Algoritma & Struktur Data",
     label: "02 / EXPERIMENT",
-    title: "Algorithm Playground",
+    title: "📸 Mini Quiz",
     description: "Simulasi interaktif logika pemrograman dan pemrosesan data sederhana.",
     linkText: "Lihat project ↗",
     linkUrl: "#"
