@@ -8,8 +8,8 @@ window.PORTFOLIO_CONTACT = { email: "gitalidia25@gmail.com", instagram: "lidiaao
 window.experimentLab = [
   {
     imageUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
-    caption: "Eksperimen Desain Web & Antarmuka Interaktif",
-    label: "01 / EXPERIMENT",
+    caption: "Kalkulator",
+    label: "01 / Project",
     title: "🧮 Simple Calculator",
     description: "Program Python untuk melakukan operasi hitung dasar seperti tambah, kurang, kali, dan bagi.",
     linkText: "Lihat project ↗",
@@ -17,19 +17,19 @@ window.experimentLab = [
   },
   {
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
-    caption: "Eksplorasi Algoritma & Struktur Data",
-    label: "02 / EXPERIMENT",
+    caption: "Mini Quiz",
+    label: "02 / Project",
     title: "📸 Mini Quiz",
-    description: "Simulasi interaktif logika pemrograman dan pemrosesan data sederhana.",
+    description: "Quiz interaktif berbasis HTML, CSS, dan JavaScript dengan foto sebagai soal.",
     linkText: "Lihat project ↗",
     linkUrl: "#"
   },
   {
     imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-    caption: "Eksperimen Interaksi UI & Animasi Kode",
-    label: "03 / EXPERIMENT",
-    title: "Interactive Code Motion",
-    description: "Eksperimen mikro-interaksi dan pergerakan elemen antarmuka berbasis web.",
+    caption: "Daily List",
+    label: "03 / Project",
+    title: "🌷Daily List",
+    description: "Daftar kegiatan harian untuk mencatat dan menandai tugas yang sudah selesai.",
     linkText: "Lihat project ↗",
     linkUrl: "#"
   }
