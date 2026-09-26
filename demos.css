@@ -37,3 +37,9 @@ button.experiment-link{font:inherit;cursor:pointer;text-align:left;background:no
 #demo-content .task-summary{font-size:11px}
 @media(max-width:380px){#demo-dialog{padding:16px}#demo-content .calc-grid{gap:6px}#demo-content .quiz-options{grid-template-columns:1fr}#demo-content button{padding:9px}}
 @media(prefers-reduced-motion:reduce){#demo-dialog,#demo-dialog::backdrop,#demo-content button{transition:none}}
+
+/* Fallback for browsers without the native dialog API. */
+#demo-dialog:not([open]){display:none}
+.demo-compat-overlay{position:fixed;inset:0;z-index:10000;background:#050d20c9;backdrop-filter:blur(8px)}
+#demo-dialog.demo-compat[open]{position:fixed;inset:50% auto auto 50%;margin:0;z-index:10001;transform:translate(-50%,-48%) scale(.98)}
+#demo-dialog.demo-compat.demo-visible[open]{transform:translate(-50%,-50%)}

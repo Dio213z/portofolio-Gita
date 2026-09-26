@@ -1,3 +1,248 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#edf4ff"><meta name="description" content="Portofolio Gita Lidia Oktavia, siswi X RPL 3 SMK Krian 1. Profil, keterampilan, eksperimen interaktif, dan prestasi."><title>Digital Space — Gita Lidia Oktavia</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="style.css"><script src="config.js" defer></script><script src="common.js" defer></script><script src="experience.js" defer></script><link rel="stylesheet" href="demos.css"><script src="demos.js" defer></script><script src="script.js" defer></script></head><body><div class="ambient" aria-hidden="true"><i></i><i></i><i></i><div class="grid-floor"></div></div><a class="skip" href="#utama">Lewati navigasi</a><header class="sidebar"><div class="sidebar-top"><a class="brand" href="index.html"><span class="brand-icon">✧</span><span>Gita Lidia<small>STUDENT / CREATIVE CODER</small></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigasi" hidden>Menu ☰</button></div><nav id="navigasi" aria-label="Menu utama"><a href="index.html#home"><span>⌂</span> Beranda</a><a href="index.html#profil"><span>◎</span> Tentang</a><a href="index.html#bekal"><span>◇</span> Kemampuan</a><a href="index.html#karya"><span>⌘</span> Eksperimen</a><a href="prestasi.html"><span>✧</span> Prestasi</a><a href="#kontak"><span>↗</span> Kontak</a></nav><div class="sidebar-bottom"><p>Small steps.<br><em>Bright possibilities.</em></p><button class="theme-toggle" type="button" aria-pressed="false" hidden>☾ Dark mode</button><button class="motion-toggle" type="button" aria-pressed="false" hidden>Ⅱ Jeda animasi</button><span class="sidebar-id">X RPL 3 / NO. 23</span></div></header><div class="workspace"><main id="utama"><div class="topbar"><span><i></i> GITA'S DIGITAL SPACE</span><span>PORTFOLIO / 01</span></div><div class="dashboard"><section id="home" class="glass hero"><div class="hero-copy"><p class="handwriting">Hello, I'm ♡</p><h1>Gita Lidia<br><em>Oktavia.</em><span class="spark" aria-hidden="true">✦</span></h1><p class="role">Pelajar RPL · Belajar web & pemrograman</p><p class="hero-description">Mencoba ide, menyusun kode,<br>dan menemukan hal baru di setiap langkah.</p><div class="hero-actions"><a class="button" href="#karya">Jelajahi eksperimen ↗</a><a class="button secondary" href="#profil">Kenali Gita</a></div></div><div class="profile-scene"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="profile-frame"><img id="profile-photo" alt="Foto Gita Lidia Oktavia" hidden><div id="profile-initials"><span>GL</span><small>GITA LIDIA OKTAVIA</small></div></div><span class="floating-code code-a" aria-hidden="true">&lt;/&gt;</span><span class="floating-code code-b" aria-hidden="true">{ }</span><span class="profile-caption">one idea at a time ✧</span></div></section><section id="profil" class="glass about"><p class="eyebrow">01 / ABOUT ME</p><h2>Di balik<br><em>layar ini.</em></h2><p>Aku Gita Lidia Oktavia, siswi kelas X RPL 3 di SMK Krian 1. Saat ini aku sedang mempelajari dasar pengembangan perangkat lunak dan pembuatan antarmuka web.</p><dl class="identity"><div><dt>NAMA</dt><dd>Gita Lidia Oktavia</dd></div><div><dt>KELAS / ABSEN</dt><dd>X RPL 3 / 23</dd></div><div><dt>SEKOLAH</dt><dd>SMK Krian 1</dd></div></dl><span class="about-note">Learn. Create. Repeat. ✧</span></section>
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#edf4ff"><meta name="description" content="Portofolio Gita Lidia Oktavia, siswi X RPL 3 SMK Krian 1. Profil, keterampilan, eksperimen interaktif, dan prestasi."><title>Digital Space — Gita Lidia Oktavia</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="style.css"><script src="config.js" defer></script><script src="common.js" defer></script><script src="experience.js" defer></script><style id="interactive-demo-styles">
+/* Isolated demo styles; the original portfolio stylesheet remains unchanged. */
+button.experiment-link{font:inherit;cursor:pointer;text-align:left;background:none;border:0;padding:0}
+#demo-dialog{width:min(550px,calc(100% - 28px));max-height:88dvh;overscroll-behavior:contain;opacity:0;transform:translateY(16px) scale(.98);transition:opacity .2s,transform .2s}
+#demo-dialog.demo-visible{opacity:1;transform:none}
+#demo-dialog::backdrop{background:#050d20c9;backdrop-filter:blur(8px);opacity:0;transition:opacity .2s}
+#demo-dialog.demo-visible::backdrop{opacity:1}
+#demo-dialog h2{overflow-wrap:anywhere;margin-bottom:6px}
+#demo-dialog .demo-label{font-size:10px;color:var(--accent);letter-spacing:.06em;margin-bottom:22px}
+#demo-content button{min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:10px 14px;transition:background .15s,transform .15s}
+#demo-content button:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-1px)}
+#demo-content .demo-primary{background:var(--accent);color:var(--bg);font-weight:700}
+#demo-content .calc-screen{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--bg);margin-bottom:16px;text-align:right}
+#demo-content .calc-expression{display:block;min-height:30px;font:26px/1.5 monospace;overflow-wrap:anywhere}
+#demo-content .calc-result{display:block;color:var(--accent);min-height:26px;overflow-wrap:anywhere}
+#demo-content .calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#demo-content .calc-wide{grid-column:span 2}
+#demo-content .demo-hint{margin-top:14px;font-size:10px}
+#demo-content .quiz-visual{height:160px;border:1px solid var(--line);background:radial-gradient(ellipse,var(--soft),var(--bg));border-radius:16px;display:grid;place-items:center;margin:16px 0;overflow:hidden}
+#demo-content .quiz-visual span{font-size:80px;line-height:1}
+#demo-content .quiz-visual img{width:100%;height:160px;object-fit:contain}
+#demo-content .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0}
+#demo-content .quiz-options button{text-align:left;overflow-wrap:anywhere}
+#demo-content button.answer-correct{border-color:#35bc91;background:#17916e25;opacity:1}
+#demo-content button.answer-wrong{border-color:#e67a89;background:#c9385425;opacity:1}
+#demo-content .quiz-feedback{min-height:28px;margin-bottom:10px}
+#demo-content .quiz-finish{text-align:center;padding:25px 0}
+#demo-content .quiz-score{font-size:24px;margin:18px 0;color:var(--accent)}
+#demo-content .task-form{display:flex;align-items:center;gap:8px;margin-bottom:15px}
+#demo-content .task-form input{min-width:0;flex:1}
+#demo-content .task-list{padding:0;list-style:none;margin:15px 0}
+#demo-content .task-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+#demo-content .task-row label{display:flex;align-items:center;gap:12px;flex:1;min-width:0;margin:0;cursor:pointer}
+#demo-content .task-row input{width:20px;min-height:20px;height:20px;flex-shrink:0;accent-color:var(--accent)}
+#demo-content .task-text{overflow-wrap:anywhere;min-width:0}
+#demo-content .task-row small{display:block;color:var(--muted);font-size:9px}
+#demo-content .task-row input:checked + span .task-title{text-decoration:line-through;opacity:.65}
+#demo-content .task-summary{font-size:11px}
+@media(max-width:380px){#demo-dialog{padding:16px}#demo-content .calc-grid{gap:6px}#demo-content .quiz-options{grid-template-columns:1fr}#demo-content button{padding:9px}}
+@media(prefers-reduced-motion:reduce){#demo-dialog,#demo-dialog::backdrop,#demo-content button{transition:none}}
+
+/* Fallback for browsers without the native dialog API. */
+#demo-dialog:not([open]){display:none}
+.demo-compat-overlay{position:fixed;inset:0;z-index:10000;background:#050d20c9;backdrop-filter:blur(8px)}
+#demo-dialog.demo-compat[open]{position:fixed;inset:50% auto auto 50%;margin:0;z-index:10001;transform:translate(-50%,-48%) scale(.98)}
+#demo-dialog.demo-compat.demo-visible[open]{transform:translate(-50%,-50%)}
+
+</style></head><body><div class="ambient" aria-hidden="true"><i></i><i></i><i></i><div class="grid-floor"></div></div><a class="skip" href="#utama">Lewati navigasi</a><header class="sidebar"><div class="sidebar-top"><a class="brand" href="index.html"><span class="brand-icon">✧</span><span>Gita Lidia<small>STUDENT / CREATIVE CODER</small></span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigasi" hidden>Menu ☰</button></div><nav id="navigasi" aria-label="Menu utama"><a href="index.html#home"><span>⌂</span> Beranda</a><a href="index.html#profil"><span>◎</span> Tentang</a><a href="index.html#bekal"><span>◇</span> Kemampuan</a><a href="index.html#karya"><span>⌘</span> Eksperimen</a><a href="prestasi.html"><span>✧</span> Prestasi</a><a href="#kontak"><span>↗</span> Kontak</a></nav><div class="sidebar-bottom"><p>Small steps.<br><em>Bright possibilities.</em></p><button class="theme-toggle" type="button" aria-pressed="false" hidden>☾ Dark mode</button><button class="motion-toggle" type="button" aria-pressed="false" hidden>Ⅱ Jeda animasi</button><span class="sidebar-id">X RPL 3 / NO. 23</span></div></header><div class="workspace"><main id="utama"><div class="topbar"><span><i></i> GITA'S DIGITAL SPACE</span><span>PORTFOLIO / 01</span></div><div class="dashboard"><section id="home" class="glass hero"><div class="hero-copy"><p class="handwriting">Hello, I'm ♡</p><h1>Gita Lidia<br><em>Oktavia.</em><span class="spark" aria-hidden="true">✦</span></h1><p class="role">Pelajar RPL · Belajar web & pemrograman</p><p class="hero-description">Mencoba ide, menyusun kode,<br>dan menemukan hal baru di setiap langkah.</p><div class="hero-actions"><a class="button" href="#karya">Jelajahi eksperimen ↗</a><a class="button secondary" href="#profil">Kenali Gita</a></div></div><div class="profile-scene"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="profile-frame"><img id="profile-photo" alt="Foto Gita Lidia Oktavia" hidden><div id="profile-initials"><span>GL</span><small>GITA LIDIA OKTAVIA</small></div></div><span class="floating-code code-a" aria-hidden="true">&lt;/&gt;</span><span class="floating-code code-b" aria-hidden="true">{ }</span><span class="profile-caption">one idea at a time ✧</span></div></section><section id="profil" class="glass about"><p class="eyebrow">01 / ABOUT ME</p><h2>Di balik<br><em>layar ini.</em></h2><p>Aku Gita Lidia Oktavia, siswi kelas X RPL 3 di SMK Krian 1. Saat ini aku sedang mempelajari dasar pengembangan perangkat lunak dan pembuatan antarmuka web.</p><dl class="identity"><div><dt>NAMA</dt><dd>Gita Lidia Oktavia</dd></div><div><dt>KELAS / ABSEN</dt><dd>X RPL 3 / 23</dd></div><div><dt>SEKOLAH</dt><dd>SMK Krian 1</dd></div></dl><span class="about-note">Learn. Create. Repeat. ✧</span></section>
 <section id="bekal" class="glass skills"><div class="section-heading"><div><p class="eyebrow">02 / SKILL SIGNALS</p><h2>Bekal <em>digital.</em></h2></div><span class="micro">RATING DIRI / 5 BINTANG</span></div><p>Teknologi yang sedang kupelajari dan kembangkan.</p><div class="skill-grid"><article class="skill-card"><span class="skill-icon">&lt;/&gt;</span><h3>HTML & CSS</h3><div class="stars" role="img" aria-label="3 dari 5 bintang"><span>★★★</span><span class="unfilled">☆☆</span></div><small>3 / 5</small></article><article class="skill-card"><span class="skill-icon">JS</span><h3>JavaScript</h3><div class="stars" role="img" aria-label="4 dari 5 bintang"><span>★★★★</span><span class="unfilled">☆</span></div><small>4 / 5</small></article><article class="skill-card"><span class="skill-icon">Py</span><h3>Python</h3><div class="stars" role="img" aria-label="4 dari 5 bintang"><span>★★★★</span><span class="unfilled">☆</span></div><small>4 / 5</small></article><article class="skill-card"><span class="skill-icon">Jv</span><h3>Java</h3><div class="stars" role="img" aria-label="3 dari 5 bintang"><span>★★★</span><span class="unfilled">☆☆</span></div><small>3 / 5</small></article></div></section><section class="glass education"><p class="eyebrow">03 / EDUCATION LOG</p><h2>Jejak <em>belajar.</em></h2><ol><li><span>01 / SEKOLAH DASAR</span><h3>SDN 153 Gresik</h3></li><li><span>02 / SEKOLAH MENENGAH</span><h3>SMPN 16 Gresik</h3></li><li><span>03 / SEKOLAH KEJURUAN</span><h3>SMK Krian 1</h3></li></ol></section>
-<section id="karya" class="glass projects-panel"><div class="section-heading"><div><p class="eyebrow">04 / EXPERIMENT LAB</p><h2>Eksplorasi,<em> karya visual.</em></h2></div><span class="micro">03 EXPERIMENTS</span></div><p>Eksplorasi ide, antarmuka visual, dan eksperimen kode.</p><div class="projects" id="experiment-container"></div><div class="achievement-cta"><div><h3>Setiap pencapaian punya cerita.</h3><p>Temukan dokumentasi dan sertifikat di ruang prestasi.</p></div><a class="button" href="prestasi.html">Lihat prestasi aku di sini ya ↗</a></div><noscript><p>Aktifkan JavaScript untuk melihat eksperimen.</p></noscript></section></div></main><footer id="kontak" class="glass contact-panel"><div><p class="eyebrow">05 / LET'S CONNECT</p><h2>Awali dengan<br><em>sebuah halo.</em></h2><p>Terima kasih sudah menjelajahi ruang digitalku.</p></div><div class="contact-details"><div class="contact-line"><span>Email</span><span id="email-contact">Belum dicantumkan</span></div><div class="contact-line"><span>Instagram</span><span id="social-contact">Belum dicantumkan</span></div></div></footer><div class="footer-bottom"><span>© <span id="year">2026</span> Gita Lidia Oktavia</span><span>Designed to learn. Built to explore.</span><a href="#utama">Kembali ke atas ↑</a></div></div><dialog id="demo-dialog" aria-labelledby="demo-title"><div class="dialog-head"><span>GITA / INTERACTIVE LAB</span><button id="close-dialog" type="button" aria-label="Tutup demo">×</button></div><h2 id="demo-title"></h2><div id="demo-content"></div></dialog></body></html>
+<section id="karya" class="glass projects-panel"><div class="section-heading"><div><p class="eyebrow">04 / EXPERIMENT LAB</p><h2>Eksplorasi,<em> karya visual.</em></h2></div><span class="micro">03 EXPERIMENTS</span></div><p>Eksplorasi ide, antarmuka visual, dan eksperimen kode.</p><div class="projects" id="experiment-container"></div><div class="achievement-cta"><div><h3>Setiap pencapaian punya cerita.</h3><p>Temukan dokumentasi dan sertifikat di ruang prestasi.</p></div><a class="button" href="prestasi.html">Lihat prestasi aku di sini ya ↗</a></div><noscript><p>Aktifkan JavaScript untuk melihat eksperimen.</p></noscript></section></div></main><footer id="kontak" class="glass contact-panel"><div><p class="eyebrow">05 / LET'S CONNECT</p><h2>Awali dengan<br><em>sebuah halo.</em></h2><p>Terima kasih sudah menjelajahi ruang digitalku.</p></div><div class="contact-details"><div class="contact-line"><span>Email</span><span id="email-contact">Belum dicantumkan</span></div><div class="contact-line"><span>Instagram</span><span id="social-contact">Belum dicantumkan</span></div></div></footer><div class="footer-bottom"><span>© <span id="year">2026</span> Gita Lidia Oktavia</span><span>Designed to learn. Built to explore.</span><a href="#utama">Kembali ke atas ↑</a></div></div><dialog id="demo-dialog" aria-labelledby="demo-title"><div class="dialog-head"><span>GITA / INTERACTIVE LAB</span><button id="close-dialog" type="button" aria-label="Tutup demo">×</button></div><h2 id="demo-title"></h2><div id="demo-content"></div></dialog><script>
+document.addEventListener("DOMContentLoaded", function () {
+'use strict';
+(() => {
+  const dialog = document.querySelector('#demo-dialog');
+  const content = document.querySelector('#demo-content');
+  const title = document.querySelector('#demo-title');
+  const label = document.createElement('p');
+  label.className = 'demo-label';
+  title.after(label);
+  let cleanup = () => {}, opener, closeTimer, oldOverflow;
+  const nativeDialog = typeof dialog.showModal === 'function';
+  const overlay = document.createElement('div');
+  overlay.className = 'demo-compat-overlay';
+  overlay.hidden = true;
+  document.body.append(overlay);
+  overlay.addEventListener('click', close);
+  function isOpen() { return dialog.hasAttribute('open'); }
+  function hideDialog() {
+    if (nativeDialog) dialog.close(); else dialog.removeAttribute('open');
+    overlay.hidden = true;
+  }
+  dialog.setAttribute('role', 'dialog');
+  dialog.setAttribute('aria-modal', 'true');
+  document.addEventListener('keydown', e => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    if (e.key === 'Tab') {
+      const focusable = [...dialog.querySelectorAll('button:not(:disabled), input, [tabindex="0"]')].filter(n => !n.hidden);
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+    }
+  });
+  const el = (tag, text, cls) => { const n = document.createElement(tag); if(text !== undefined) n.textContent = text; if(cls) n.className = cls; return n; };
+  const button = (text, action, cls) => { const n = el('button', text, cls); n.type = 'button'; n.addEventListener('click', action); return n; };
+  function close() {
+    if (!isOpen() || closeTimer) return;
+    dialog.classList.remove('demo-visible');
+    closeTimer = setTimeout(() => { cleanup(); hideDialog(); document.body.style.overflow = oldOverflow; opener?.focus(); closeTimer = null; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200);
+  }
+  document.querySelector('#close-dialog').addEventListener('click', close);
+  dialog.addEventListener('cancel', e => { e.preventDefault(); close(); });
+  dialog.addEventListener('click', e => { const r = dialog.getBoundingClientRect(); if(e.target === dialog && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) close(); });
+  // Native modal dialog contains keyboard focus and makes the page behind it inert.
+  window.PortfolioDemos = { open(item, trigger) {
+    if (isOpen()) return;
+    const name = String(item.title || '').toLowerCase();
+    const demoType = item.demoType || (/calc|kalkulator/.test(name) ? 'calculator' : /quiz|kuis/.test(name) ? 'quiz' : /daily|list|tugas/.test(name) ? 'daily-list' : '');
+    item = { ...item, demoType };
+    opener = trigger; content.replaceChildren(); title.textContent = item.title;
+    const names = { calculator:'Simple Calculator', quiz:'Mini Quiz', 'daily-list':'Daily List' };
+    label.textContent = `Interactive Demo — ${names[item.demoType] || item.title}`;
+    cleanup = (renderers[item.demoType] || (() => { content.append(el('p','Jenis demo belum dikonfigurasi.')); })) (item) || (() => {});
+    oldOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
+    if (nativeDialog) dialog.showModal();
+    else { overlay.hidden = false; dialog.setAttribute('open', ''); dialog.classList.add('demo-compat'); }
+    requestAnimationFrame(() => dialog.classList.add('demo-visible'));
+    document.querySelector('#close-dialog').focus();
+  }};
+  function calculator() {
+    let expression = '', finished = false;
+    const screen = el('div', undefined, 'calc-screen');
+    const display = el('output', '0', 'calc-expression'); display.setAttribute('aria-label','Angka dan operasi');
+    const result = el('output', '', 'calc-result'); result.setAttribute('aria-live','polite');
+    screen.append(display,result); const grid = el('div', undefined, 'calc-grid');
+    content.append(screen,grid,el('p','Keyboard: 0–9, + − * /, Enter, Backspace, dan C untuk clear.', 'demo-hint'));
+    // Explicit arithmetic parser: multiplication/division precede addition/subtraction. No eval.
+    function evaluate(s) {
+      const tokens = s.match(/\d+(?:\.\d*)?|\.\d+|[+\-*/]/g) || [];
+      let i = 0;
+      const number = () => { let sign=1; if(tokens[i]==='-'){sign=-1;i++;} const t=tokens[i++]; if(t===undefined || !/^\d*\.?\d+$|^\d+\.$/.test(t)) throw Error('Lengkapi perhitungan'); return sign*Number(t); };
+      const term = () => { let n=number(); while(tokens[i]==='*'||tokens[i]==='/'){const op=tokens[i++], b=number(); if(op==='/'&&b===0)throw Error('Tidak bisa dibagi nol'); n=op==='*'?n*b:n/b;} return n; };
+      let n=term(); while(i<tokens.length){const op=tokens[i++]; if(op!=='+'&&op!=='-')throw Error('Lengkapi perhitungan'); const b=term(); n=op==='+'?n+b:n-b;} if(!Number.isFinite(n))throw Error('Hasil terlalu besar'); return Number(n.toPrecision(12));
+    }
+    function update() { display.textContent = expression.replaceAll('*','×').replaceAll('/','÷').replaceAll('-','−') || '0'; try { result.textContent = expression ? '= '+evaluate(expression) : 'Siap menghitung'; } catch(e){ result.textContent = e.message; } }
+    function press(key) {
+      if(key==='C'){expression='';finished=false;}
+      else if(key==='Backspace'){expression=expression.slice(0,-1);finished=false;}
+      else if(key==='='){try{const n=evaluate(expression); expression=n.toLocaleString('en-US',{useGrouping:false,maximumFractionDigits:12});finished=true;}catch{} }
+      else if(/^[0-9.]$/.test(key)) { if(finished){expression='';finished=false;} if(expression.length>=100)return; const last=expression.split(/[+\-*/]/).pop(); if(key==='.'&&last.includes('.'))return; expression += key==='.'&&!last?'0.':key; }
+      else if(/^[+\-*/]$/.test(key)){finished=false; if(!expression){if(key==='-')expression='-';}else if(/[+\-*/]$/.test(expression))expression=expression.slice(0,-1)+key;else expression+=key;}
+      update();
+    }
+    [['Clear','C','calc-wide'],['Delete ⌫','Backspace','calc-wide'],['7','7'],['8','8'],['9','9'],['÷','/'],['4','4'],['5','5'],['6','6'],['×','*'],['1','1'],['2','2'],['3','3'],['−','-'],['0','0'],['.','.'],['=','=','demo-primary'],['+','+']].forEach(([text,key,cls])=>grid.append(button(text,()=>press(key),cls)));
+    const onKey=e=>{if(e.ctrlKey||e.metaKey||e.altKey)return;const key=e.key==='Enter'?'=':e.key.toLowerCase()==='c'?'C':e.key;if(/^[0-9.+*/=\-]$/.test(key)||['Backspace','C','Delete'].includes(key)){e.preventDefault();press(key==='Delete'?'C':key);}};
+    dialog.addEventListener('keydown',onKey); update();return ()=>dialog.removeEventListener('keydown',onKey);
+  }
+  function quiz(item) {
+    const fallbackQuestions = [
+  { question: "Buah apakah pada gambar ini?", imageUrl: "", visual: "🍎", imageAlt: "Buah merah dengan tangkai", options: ["Apel", "Jeruk", "Pisang", "Anggur"], answer: 0 },
+  { question: "Hewan apakah pada gambar ini?", imageUrl: "", visual: "🐈", imageAlt: "Hewan berkumis dan berekor", options: ["Kelinci", "Anjing", "Kucing", "Kuda"], answer: 2 },
+  { question: "Benda langit apakah pada gambar ini?", imageUrl: "", visual: "🌙", imageAlt: "Benda langit berbentuk sabit", options: ["Matahari", "Bulan", "Bumi", "Saturnus"], answer: 1 }
+];
+    const source = Array.isArray(item.questions) ? item.questions : Array.isArray(window.PORTFOLIO_QUIZ) ? window.PORTFOLIO_QUIZ : fallbackQuestions;
+    let questions = source.filter(q=>Array.isArray(q.options)&&q.options.length===4&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4);
+    if (!questions.length) questions = fallbackQuestions;
+    let index=0,score=0;
+    function render(){
+      content.replaceChildren();
+      if(index===questions.length){const finish=el('div',undefined,'quiz-finish');finish.append(el('h3','Quiz selesai!'),el('p',`Skor kamu: ${score}/${questions.length}`,'quiz-score'),button('Coba Lagi',()=>{index=0;score=0;render();},'demo-primary'));content.append(finish);return;}
+      const q=questions[index];content.append(el('p',`SOAL ${index+1} / ${questions.length} · Skor ${score}`));
+      const visual=el('div',undefined,'quiz-visual');const fallback=el('span',q.visual || '✦');fallback.setAttribute('role','img');fallback.setAttribute('aria-label',q.imageAlt||'Visual soal');visual.append(fallback);
+      if(q.imageUrl){const img=el('img');img.alt=q.imageAlt||q.question;img.hidden=true;img.onload=()=>{img.hidden=false;fallback.hidden=true;};img.onerror=()=>{img.remove();fallback.hidden=false;};img.src=q.imageUrl;visual.append(img);}
+      const choices=el('div',undefined,'quiz-options'),feedback=el('p','','quiz-feedback');feedback.setAttribute('role','status');let answered=false;
+      const next=button(index===questions.length-1?'Lihat Hasil':'Soal Berikutnya',()=>{index++;render();content.querySelector('button')?.focus();},'demo-primary');next.disabled=true;
+      q.options.forEach((option,i)=>choices.append(button(option,()=>{if(answered)return;answered=true;const correct=i===q.answer;if(correct)score++;[...choices.children].forEach((b,j)=>{b.disabled=true;if(j===q.answer)b.classList.add('answer-correct');else if(j===i)b.classList.add('answer-wrong');});feedback.textContent=correct?'✓ Benar!':'✕ Salah. Jawaban benar: '+q.options[q.answer];next.disabled=false;next.focus();})));
+      content.append(visual,el('h3',q.question),choices,feedback,next);
+    }render();
+  }
+  function dailyList(){
+    const key='gita-daily-demo-v1';let tasks, persistent=true;
+    try{const raw=localStorage.getItem(key);tasks=raw===null?null:JSON.parse(raw);if(tasks!==null&&(!Array.isArray(tasks)||!tasks.every(t=>t&&typeof t.text==='string'&&typeof t.done==='boolean')))tasks=null;}catch{persistent=false;}
+    if(!tasks)tasks=[{text:'Belajar JavaScript 20 menit',done:false},{text:'Rapikan catatan hari ini',done:true}];
+    const form=el('form',undefined,'task-form'),input=el('input');input.placeholder='Tulis kegiatan baru…';input.maxLength=200;input.required=true;input.setAttribute('aria-label','Tugas baru');const add=el('button','Tambah','demo-primary');add.type='submit';form.append(input,add);
+    const summary=el('p','','task-summary');summary.setAttribute('role','status');const list=el('ul',undefined,'task-list');const notice=el('p','','demo-hint');content.append(form,summary,list,notice);
+    function save(){try{localStorage.setItem(key,JSON.stringify(tasks));}catch{persistent=false;}notice.textContent=persistent?'Tersimpan otomatis di browser ini.':'Penyimpanan browser tidak tersedia; tugas tersimpan selama demo ini terbuka.';}
+    function render(){list.replaceChildren();const done=tasks.filter(t=>t.done).length;summary.textContent=`${tasks.length} tugas · ${done} selesai · ${tasks.length-done} belum selesai`;
+      tasks.forEach((task,i)=>{const row=el('li',undefined,'task-row'),label=el('label'),check=el('input');check.type='checkbox';check.checked=task.done;const text=el('span',undefined,'task-text');text.append(el('span',task.text,'task-title'),el('small',task.done?'Selesai':'Belum selesai'));check.addEventListener('change',()=>{task.done=check.checked;save();render();list.children[i]?.querySelector('input').focus();});label.append(check,text);const remove=button('×',()=>{tasks.splice(i,1);save();render();(list.children[Math.min(i,tasks.length-1)]?.querySelector('button')||input).focus();});remove.setAttribute('aria-label','Hapus '+task.text);row.append(label,remove);list.append(row);});
+      if(!tasks.length)list.append(el('li','Belum ada tugas. Tambahkan kegiatan pertamamu.'));}
+    form.addEventListener('submit',e=>{e.preventDefault();const text=input.value.trim();if(!text){input.value='';input.focus();return;}tasks.push({text,done:false});input.value='';save();render();input.focus();});save();render();
+  }
+  const renderers={calculator,quiz,'daily-list':dailyList};
+})();
+
+'use strict';
+(() => {
+  const container = document.querySelector('#experiment-container');
+  if (!container) return;
+
+  const experiments = Array.isArray(window.experimentLab) ? window.experimentLab : [];
+
+  container.replaceChildren();
+
+  experiments.forEach((item, index) => {
+    const article = document.createElement('article');
+    article.className = 'project experiment-card';
+
+    // Container visual utama (gambar + overlay caption)
+    const mediaDiv = document.createElement('div');
+    mediaDiv.className = 'experiment-media';
+
+    const img = document.createElement('img');
+    img.className = 'experiment-img';
+    img.alt = item.title || `Experiment ${index + 1}`;
+
+    const fallbackDiv = document.createElement('div');
+    fallbackDiv.className = 'experiment-fallback';
+    fallbackDiv.hidden = true;
+    fallbackDiv.innerHTML = `<span>✦</span><p>${item.title || 'Image Unavailable'}</p>`;
+
+    img.addEventListener('error', () => {
+      img.hidden = true;
+      fallbackDiv.hidden = false;
+    });
+
+    if (item.imageUrl) {
+      img.src = item.imageUrl;
+    } else {
+      img.hidden = true;
+      fallbackDiv.hidden = false;
+    }
+
+    const captionDiv = document.createElement('div');
+    captionDiv.className = 'experiment-caption-overlay';
+    captionDiv.textContent = item.caption || '';
+
+    mediaDiv.append(img, fallbackDiv, captionDiv);
+
+    // Body card
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'project-body experiment-body';
+
+    const tagSpan = document.createElement('span');
+    tagSpan.className = 'tag';
+    tagSpan.textContent = item.label || `0${index + 1} / EXPERIMENT`;
+
+    const titleH3 = document.createElement('h3');
+    titleH3.textContent = item.title || '';
+
+    const descP = document.createElement('p');
+    descP.textContent = item.description || '';
+
+    const linkA = document.createElement('button');
+    linkA.type = 'button';
+    linkA.className = 'experiment-link';
+    linkA.textContent = 'Coba Demo ↗';
+    linkA.setAttribute('aria-haspopup', 'dialog');
+    linkA.addEventListener('click', () => window.PortfolioDemos.open(item, linkA));
+
+    bodyDiv.append(tagSpan, titleH3, descP, linkA);
+
+    article.append(mediaDiv, bodyDiv);
+    container.append(article);
+  });
+})();
+
+});
+</script></body></html>

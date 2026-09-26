@@ -7,25 +7,54 @@
   label.className = 'demo-label';
   title.after(label);
   let cleanup = () => {}, opener, closeTimer, oldOverflow;
+  const nativeDialog = typeof dialog.showModal === 'function';
+  const overlay = document.createElement('div');
+  overlay.className = 'demo-compat-overlay';
+  overlay.hidden = true;
+  document.body.append(overlay);
+  overlay.addEventListener('click', close);
+  function isOpen() { return dialog.hasAttribute('open'); }
+  function hideDialog() {
+    if (nativeDialog) dialog.close(); else dialog.removeAttribute('open');
+    overlay.hidden = true;
+  }
+  dialog.setAttribute('role', 'dialog');
+  dialog.setAttribute('aria-modal', 'true');
+  document.addEventListener('keydown', e => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    if (e.key === 'Tab') {
+      const focusable = [...dialog.querySelectorAll('button:not(:disabled), input, [tabindex="0"]')].filter(n => !n.hidden);
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last?.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+    }
+  });
   const el = (tag, text, cls) => { const n = document.createElement(tag); if(text !== undefined) n.textContent = text; if(cls) n.className = cls; return n; };
   const button = (text, action, cls) => { const n = el('button', text, cls); n.type = 'button'; n.addEventListener('click', action); return n; };
   function close() {
-    if (!dialog.open || closeTimer) return;
+    if (!isOpen() || closeTimer) return;
     dialog.classList.remove('demo-visible');
-    closeTimer = setTimeout(() => { cleanup(); dialog.close(); document.body.style.overflow = oldOverflow; opener?.focus(); closeTimer = null; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200);
+    closeTimer = setTimeout(() => { cleanup(); hideDialog(); document.body.style.overflow = oldOverflow; opener?.focus(); closeTimer = null; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200);
   }
   document.querySelector('#close-dialog').addEventListener('click', close);
   dialog.addEventListener('cancel', e => { e.preventDefault(); close(); });
   dialog.addEventListener('click', e => { const r = dialog.getBoundingClientRect(); if(e.target === dialog && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) close(); });
   // Native modal dialog contains keyboard focus and makes the page behind it inert.
   window.PortfolioDemos = { open(item, trigger) {
-    if (dialog.open) return;
+    if (isOpen()) return;
+    const name = String(item.title || '').toLowerCase();
+    const demoType = item.demoType || (/calc|kalkulator/.test(name) ? 'calculator' : /quiz|kuis/.test(name) ? 'quiz' : /daily|list|tugas/.test(name) ? 'daily-list' : '');
+    item = { ...item, demoType };
     opener = trigger; content.replaceChildren(); title.textContent = item.title;
     const names = { calculator:'Simple Calculator', quiz:'Mini Quiz', 'daily-list':'Daily List' };
     label.textContent = `Interactive Demo — ${names[item.demoType] || item.title}`;
     cleanup = (renderers[item.demoType] || (() => { content.append(el('p','Jenis demo belum dikonfigurasi.')); })) (item) || (() => {});
     oldOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
-    dialog.showModal(); requestAnimationFrame(() => dialog.classList.add('demo-visible'));
+    if (nativeDialog) dialog.showModal();
+    else { overlay.hidden = false; dialog.setAttribute('open', ''); dialog.classList.add('demo-compat'); }
+    requestAnimationFrame(() => dialog.classList.add('demo-visible'));
+    document.querySelector('#close-dialog').focus();
   }};
   function calculator() {
     let expression = '', finished = false;
@@ -36,7 +65,7 @@
     content.append(screen,grid,el('p','Keyboard: 0–9, + − * /, Enter, Backspace, dan C untuk clear.', 'demo-hint'));
     // Explicit arithmetic parser: multiplication/division precede addition/subtraction. No eval.
     function evaluate(s) {
-      const tokens = s.match(/(?:\d*\.)?\d+|\d+\.?\d*|[+\-*/]/g) || [];
+      const tokens = s.match(/\d+(?:\.\d*)?|\.\d+|[+\-*/]/g) || [];
       let i = 0;
       const number = () => { let sign=1; if(tokens[i]==='-'){sign=-1;i++;} const t=tokens[i++]; if(t===undefined || !/^\d*\.?\d+$|^\d+\.$/.test(t)) throw Error('Lengkapi perhitungan'); return sign*Number(t); };
       const term = () => { let n=number(); while(tokens[i]==='*'||tokens[i]==='/'){const op=tokens[i++], b=number(); if(op==='/'&&b===0)throw Error('Tidak bisa dibagi nol'); n=op==='*'?n*b:n/b;} return n; };
@@ -56,7 +85,14 @@
     dialog.addEventListener('keydown',onKey); update();return ()=>dialog.removeEventListener('keydown',onKey);
   }
   function quiz(item) {
-    const questions = (item.questions || window.PORTFOLIO_QUIZ || []).filter(q=>Array.isArray(q.options)&&q.options.length===4&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4);
+    const fallbackQuestions = [
+  { question: "Buah apakah pada gambar ini?", imageUrl: "", visual: "🍎", imageAlt: "Buah merah dengan tangkai", options: ["Apel", "Jeruk", "Pisang", "Anggur"], answer: 0 },
+  { question: "Hewan apakah pada gambar ini?", imageUrl: "", visual: "🐈", imageAlt: "Hewan berkumis dan berekor", options: ["Kelinci", "Anjing", "Kucing", "Kuda"], answer: 2 },
+  { question: "Benda langit apakah pada gambar ini?", imageUrl: "", visual: "🌙", imageAlt: "Benda langit berbentuk sabit", options: ["Matahari", "Bulan", "Bumi", "Saturnus"], answer: 1 }
+];
+    const source = Array.isArray(item.questions) ? item.questions : Array.isArray(window.PORTFOLIO_QUIZ) ? window.PORTFOLIO_QUIZ : fallbackQuestions;
+    let questions = source.filter(q=>Array.isArray(q.options)&&q.options.length===4&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4);
+    if (!questions.length) questions = fallbackQuestions;
     let index=0,score=0;
     function render(){
       content.replaceChildren();

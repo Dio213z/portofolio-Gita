@@ -48,3 +48,7 @@ Buka `index.html`, lalu pilih **Coba Demo ↗** pada Experiment Lab. Tidak memer
 - Daily List menyimpan tugas di localStorage browser yang sama. Daftar contoh hanya dibuat saat belum ada data; daftar yang sengaja dikosongkan tetap kosong setelah refresh. Jika penyimpanan tidak tersedia, demo tetap dapat dipakai dan menampilkan pemberitahuan.
 - Tutup modal dengan X, Escape, atau klik overlay. Fokus kembali ke tombol pembuka. Modal menghormati pengaturan reduced motion.
 - Untuk tipe demo baru, tambahkan renderer yang sesuai dalam `demos.js`, lalu daftarkan pada `renderers`. Tidak ada tautan kosong atau halaman demo terpisah.
+
+
+### Revisi demo siap pakai
+Kode modal dan renderer demo kini tertanam di index.html agar tidak tertinggal saat upload. File demos.js, demos.css, dan script.js adalah sumber referensi; perubahan demo pada file sumber harus disalin ke bagian inline index.html. Konfigurasi soal/project tetap dibaca dari config.js. Tersedia fallback popup untuk browser tanpa showModal. Lihat MULAI-DI-SINI.txt.

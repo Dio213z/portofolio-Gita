@@ -1,0 +1,17 @@
+PORTOFOLIO GITA — DEMO SIAP PAKAI
+
+1. Ekstrak seluruh ZIP ini.
+2. Buka index.html di Chrome/Edge/Firefox/Safari, bukan dari preview ZIP.
+3. Scroll ke Experiment Lab, klik Coba Demo.
+
+Simple Calculator: tombol angka/operasi dan keyboard langsung berfungsi.
+Mini Quiz: 3 soal visual sudah terisi; pilih jawaban, lanjutkan, lihat skor.
+Daily List: isi tugas lalu Tambah; centang selesai; tombol × menghapus.
+Tidak perlu menulis kode atau memasukkan link project.
+
+Untuk memperbarui hosting: ganti seluruh file lama dengan isi folder ini.
+Pastikan index.html berada di folder utama website, lalu refresh halaman.
+
+Kode demo dan gayanya sudah tertanam di index.html untuk mencegah file
+demo tertinggal saat upload. demos.js dan demos.css disertakan sebagai
+sumber referensi. Konfigurasi project/soal dapat diedit di config.js.
