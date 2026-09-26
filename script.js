@@ -3,7 +3,7 @@
   const container = document.querySelector('#experiment-container');
   if (!container) return;
 
-  const experiments = Array.isArray(window.experimentLab) ? window.experimentLab.slice(0, 3) : [];
+  const experiments = Array.isArray(window.experimentLab) ? window.experimentLab : [];
 
   container.replaceChildren();
 
@@ -56,10 +56,12 @@
     const descP = document.createElement('p');
     descP.textContent = item.description || '';
 
-    const linkA = document.createElement('a');
+    const linkA = document.createElement('button');
+    linkA.type = 'button';
     linkA.className = 'experiment-link';
-    linkA.href = item.linkUrl || '#';
-    linkA.textContent = item.linkText || 'Lihat project ↗';
+    linkA.textContent = 'Coba Demo ↗';
+    linkA.setAttribute('aria-haspopup', 'dialog');
+    linkA.addEventListener('click', () => window.PortfolioDemos.open(item, linkA));
 
     bodyDiv.append(tagSpan, titleH3, descP, linkA);
 

@@ -1,0 +1,39 @@
+/* Isolated demo styles; the original portfolio stylesheet remains unchanged. */
+button.experiment-link{font:inherit;cursor:pointer;text-align:left;background:none;border:0;padding:0}
+#demo-dialog{width:min(550px,calc(100% - 28px));max-height:88dvh;overscroll-behavior:contain;opacity:0;transform:translateY(16px) scale(.98);transition:opacity .2s,transform .2s}
+#demo-dialog.demo-visible{opacity:1;transform:none}
+#demo-dialog::backdrop{background:#050d20c9;backdrop-filter:blur(8px);opacity:0;transition:opacity .2s}
+#demo-dialog.demo-visible::backdrop{opacity:1}
+#demo-dialog h2{overflow-wrap:anywhere;margin-bottom:6px}
+#demo-dialog .demo-label{font-size:10px;color:var(--accent);letter-spacing:.06em;margin-bottom:22px}
+#demo-content button{min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:10px 14px;transition:background .15s,transform .15s}
+#demo-content button:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-1px)}
+#demo-content .demo-primary{background:var(--accent);color:var(--bg);font-weight:700}
+#demo-content .calc-screen{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--bg);margin-bottom:16px;text-align:right}
+#demo-content .calc-expression{display:block;min-height:30px;font:26px/1.5 monospace;overflow-wrap:anywhere}
+#demo-content .calc-result{display:block;color:var(--accent);min-height:26px;overflow-wrap:anywhere}
+#demo-content .calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+#demo-content .calc-wide{grid-column:span 2}
+#demo-content .demo-hint{margin-top:14px;font-size:10px}
+#demo-content .quiz-visual{height:160px;border:1px solid var(--line);background:radial-gradient(ellipse,var(--soft),var(--bg));border-radius:16px;display:grid;place-items:center;margin:16px 0;overflow:hidden}
+#demo-content .quiz-visual span{font-size:80px;line-height:1}
+#demo-content .quiz-visual img{width:100%;height:160px;object-fit:contain}
+#demo-content .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:16px 0}
+#demo-content .quiz-options button{text-align:left;overflow-wrap:anywhere}
+#demo-content button.answer-correct{border-color:#35bc91;background:#17916e25;opacity:1}
+#demo-content button.answer-wrong{border-color:#e67a89;background:#c9385425;opacity:1}
+#demo-content .quiz-feedback{min-height:28px;margin-bottom:10px}
+#demo-content .quiz-finish{text-align:center;padding:25px 0}
+#demo-content .quiz-score{font-size:24px;margin:18px 0;color:var(--accent)}
+#demo-content .task-form{display:flex;align-items:center;gap:8px;margin-bottom:15px}
+#demo-content .task-form input{min-width:0;flex:1}
+#demo-content .task-list{padding:0;list-style:none;margin:15px 0}
+#demo-content .task-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+#demo-content .task-row label{display:flex;align-items:center;gap:12px;flex:1;min-width:0;margin:0;cursor:pointer}
+#demo-content .task-row input{width:20px;min-height:20px;height:20px;flex-shrink:0;accent-color:var(--accent)}
+#demo-content .task-text{overflow-wrap:anywhere;min-width:0}
+#demo-content .task-row small{display:block;color:var(--muted);font-size:9px}
+#demo-content .task-row input:checked + span .task-title{text-decoration:line-through;opacity:.65}
+#demo-content .task-summary{font-size:11px}
+@media(max-width:380px){#demo-dialog{padding:16px}#demo-content .calc-grid{gap:6px}#demo-content .quiz-options{grid-template-columns:1fr}#demo-content button{padding:9px}}
+@media(prefers-reduced-motion:reduce){#demo-dialog,#demo-dialog::backdrop,#demo-content button{transition:none}}

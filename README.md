@@ -37,3 +37,14 @@ Untuk hosting statis lain, unggah isi dist. GitHub Pages tanpa build tetap mendu
 Orbit profil, cahaya latar, bintang, scan panel, animasi masuk saat scroll, hover kartu, dan ilustrasi demo. Semua dekorasi tidak menangkap klik. Tombol jeda menghentikan animasi CSS. Preferensi reduced motion perangkat dihormati. Menu HP, navigasi keyboard, label bintang untuk pembaca layar, serta dialog yang dapat ditutup dengan Escape disertakan.
 
 Tidak ada formulir kirim pesan palsu atau tombol CV tanpa file. Email & Instagram ditampilkan setelah diisi. Font lokal dan lisensi ada di assets/fonts.
+
+## Interactive Demo
+
+Buka `index.html`, lalu pilih **Coba Demo ↗** pada Experiment Lab. Tidak memerlukan instalasi atau backend. File tambahan: `demos.js` dan `demos.css`; stylesheet utama tidak diubah.
+
+- `config.js`: setiap item `window.experimentLab` memiliki `demoType`: `calculator`, `quiz`, atau `daily-list`.
+- Quiz: ubah `window.PORTFOLIO_QUIZ` (minimal 3 soal). `answer` adalah indeks jawaban 0–3; `options` berisi 4 jawaban. Isi `imageUrl` dengan URL/path foto sesuai pertanyaan. `visual` dan `imageAlt` menjadi fallback jika foto kosong/gagal. Untuk soal per project, gunakan properti `questions` pada item tersebut dengan format sama.
+- Calculator adalah demo visual JavaScript dari project Python, menggunakan prioritas kali/bagi sebelum tambah/kurang. Mendukung keyboard dan menangani pembagian nol.
+- Daily List menyimpan tugas di localStorage browser yang sama. Daftar contoh hanya dibuat saat belum ada data; daftar yang sengaja dikosongkan tetap kosong setelah refresh. Jika penyimpanan tidak tersedia, demo tetap dapat dipakai dan menampilkan pemberitahuan.
+- Tutup modal dengan X, Escape, atau klik overlay. Fokus kembali ke tombol pembuka. Modal menghormati pengaturan reduced motion.
+- Untuk tipe demo baru, tambahkan renderer yang sesuai dalam `demos.js`, lalu daftarkan pada `renderers`. Tidak ada tautan kosong atau halaman demo terpisah.
